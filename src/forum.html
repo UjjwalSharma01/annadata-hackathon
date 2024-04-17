@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <link rel="stylesheet" href="forumstyles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <link rel="stylesheet" href="output.css">
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+
+<body>
+    <header class="bg-gray-900 text-white py-4 px-6">
+        <nav class="flex justify-between items-center">
+            <a href="index.html" class="font-bold text-xl">Annadata</a>
+            <div class="flex space-x-4 items-center justify-center">
+                <a href="./schemes.html" class="hover:text-gray-400">Schemes</a>
+                <div id="google_translate_element" class="hover:text-gray-400"></div>
+                <a href="./signup_login.html"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">Login/Signup</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Create a Post</h1>
+        <label for="postTitle">Post Title:</label>
+        <input type="text" id="postTitle" placeholder="Enter post title">
+
+        <label for="postContent">Post Content (50 words):</label>
+        <textarea id="postContent" placeholder="Enter post content"></textarea>
+
+        <div class="image-upload">
+            <label for="clip-upload" class="clip-button">
+                <img src="clip.svg" alt="Upload Image" />
+            </label>
+            <input id="clip-upload" type="file" accept="image/*" style="display: none;" />
+        </div>
+
+        <div id="imagePreview" class="preview-container"></div>
+        
+        <button id="createPost">Create Post</button>
+
+    </div>
+
+    <script src="./forumscript.js"></script>
+</body>
+
+</html>
