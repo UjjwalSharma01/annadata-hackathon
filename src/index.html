@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annadata</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <link rel="stylesheet" href="output.css">
+</head>
+
+<body class="bg-gray-200">
+    <div class="flex flex-col min-h-screen">
+        <header class="bg-gray-900 text-white py-4 px-6">
+            <nav class="flex justify-between items-center">
+                <a href="#" class="font-bold text-xl">Annadata</a>
+                <div class="flex space-x-4 items-center justify-center">
+                    <a href="schemes.html" class="hover:text-gray-400">Schemes</a>
+                    <a href="#" class="hover:text-gray-400">Translate</a>
+                    <a href="signup_login.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">Login/Signup</a>
+                </div>
+            </nav>
+        </header>
+
+
+<div class="relative h-80">
+    <img src="image.jpg" alt="Background Image" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <h1 class="text-5xl text-white font-bold absolute inset-0 flex items-center justify-center">Annadata</h1>
+</div>
+
+
+
+        <main class="flex-grow bg-gray-100 p-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
+                    <h2 class="text-lg font-bold mb-4">Schemes</h2>
+                    <p class="text-gray-600">Explore the latest government schemes for farmers.</p>
+                    <a href="schemes.html" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Learn More</a>
+                </div>
+
+                <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
+                    <h2 class="text-lg font-bold mb-4">Community Forum</h2>
+                    <p class="text-gray-600">Connect with other farmers and share best practices.</p>
+                    <a href="#" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Explore</a>
+                </div>
+
+                <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
+                    <h2 class="text-lg font-bold mb-4">Weather Forecast</h2>
+                    <p class="text-gray-600">Get the latest weather updates for your area.</p>
+                    <a href="#" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Check Forecast</a>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-900 text-white py-4 px-6 text-center">
+            <p>&copy; 2024 Annadata. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
