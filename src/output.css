@@ -669,10 +669,6 @@ video {
   border-radius: 0.5rem;
 }
 
-.border {
-  border-width: 1px;
-}
-
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -803,18 +799,6 @@ video {
 .transform.hover\:scale-105:hover {
   transform: scale(1.05);
 }
-
-/* .goog-logo-link {
-    @apply hidden;
-}
-
-.goog-te-gadget-simple {
-    @apply text-white bg-blue-500 py-1 px-2 rounded border-none;
-}
-
-.goog-te-gadget-simple .goog-te-menu-value {
-    @apply text-white;
-} */
 
 .hover\:scale-105:hover {
   --tw-scale-x: 1.05;
