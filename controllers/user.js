@@ -1,7 +1,7 @@
 const User = require("../models/user")
 
 module.exports.renderSignupPage = (req,res)=>{
-    res.send("this is signup page")
+    res.render("signup_login.ejs")
 };
 
 module.exports.signup = async(req,res)=>{
@@ -12,10 +12,12 @@ module.exports.signup = async(req,res)=>{
     console.log(registeredUser);
     req.login(registeredUser,(err)=>{
         if(err){
+            req.flash("faliure",err)
             return next(err);
+        }else{
+            req.flash("success","Welcome to Wanderlust")
+            res.redirect("/annadata")
         }
-        req.flash("success","Welcome to WanderLust!")
-        res.redirect("/listings");
     })
    
     }
@@ -25,14 +27,15 @@ module.exports.signup = async(req,res)=>{
     }
 };
 
-module.exports.renderLoginPage =(req,res)=>{
+// module.exports.renderLoginPage =(req,res)=>{
 
-    res.render("users/login.ejs")
-};
+//     res.render("users/login.ejs")
+// };
 
 module.exports.login=async(req,res)=>{
-    req.flash("success","You are Loggedin!");
-    let redirectUrl = res.locals.redirectUrl || "/listings"
+    // req.flash("success","You are Loggedin!");
+    console.log("Redirect URL:", redirectUrl);
+    let redirectUrl = res.local.redirectUrl || "/annadata";
     res.redirect(redirectUrl);
 
 };
@@ -43,6 +46,6 @@ module.exports.logout = (req,res,next)=>{
             return next(err);
         }
         req.flash("success","You are logedout!");
-        res.redirect("/listings")
+        res.redirect("/annadata")
     })
 };

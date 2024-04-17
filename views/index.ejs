@@ -10,16 +10,17 @@
     <link rel="stylesheet" href="output.css">
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
-
+<%=success %>
+<%=error %>
 <body class="bg-gray-200">
     <div class="flex flex-col min-h-screen">
         <header class="bg-gray-900 text-white py-4 px-6">
             <nav class="flex justify-between items-center">
                 <a href="#" class="font-bold text-xl">Annadata</a>
                 <div class="flex space-x-4 items-center justify-center">
-                    <a href="schemes.html" class="hover:text-gray-400">Schemes</a>
+                    <a href="/annadata/schemes" class="hover:text-gray-400">Schemes</a>
                     <div id="google_translate_element" class="hover:text-gray-400"></div>
-                    <a href="signup_login.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">Login/Signup</a>
+                    <a href="/signup" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">Login/Signup</a>
                 </div>
             </nav>
         </header>
