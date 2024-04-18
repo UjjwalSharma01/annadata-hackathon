@@ -33,7 +33,7 @@ module.exports.signup = async(req,res)=>{
 // };
 
 module.exports.login=async(req,res)=>{
-    // req.flash("success","You are Loggedin!");
+    req.flash("success","You are Loggedin!");
     console.log("Redirect URL:", redirectUrl);
     let redirectUrl = res.local.redirectUrl || "/annadata";
     res.redirect(redirectUrl);
