@@ -1,4 +1,5 @@
 /node_modules/
-# add package-lock.json to gitignore
-package-lock.json
+node_modules/
+
+
 
