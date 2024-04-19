@@ -1,3 +1,4 @@
+const { saveRedirectUrl } = require("../middleware");
 const User = require("../models/user")
 
 module.exports.renderSignupPage = (req,res)=>{
@@ -34,9 +35,8 @@ module.exports.signup = async(req,res)=>{
 
 module.exports.login=async(req,res)=>{
     req.flash("success","You are Loggedin!");
-    console.log("Redirect URL:", redirectUrl);
-    let redirectUrl = res.local.redirectUrl || "/annadata";
-    res.redirect(redirectUrl);
+    // let redirectUrl = res.local.redirectUrl || "/annadata";
+    res.redirect("/annadata");
 
 };
 

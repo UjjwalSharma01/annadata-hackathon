@@ -7,20 +7,30 @@ module.exports.isLoggedIn = (req,res,next)=>{
     
     if(!req.isAuthenticated()){
         req.session.redirectUrl = req.originalUrl;
-        req.flash("error","You must be loggedin to add new listing! ");
-        res.redirect("/signup")
+        req.flash("error","You must be loggedin ");
+        return res.redirect("/signup")
     }
     next();
 }
-module.exports.saveRedirectUrl = (req,res,next)=>{
+module.exports.saveRedirectUrl = (req, res, next) => {
     console.log("saveRedirectUrl called")
-    if(req.session.redirectUrl){
-        res.locals.redirectUrl = req.session.redirectUrl;
-    }
     console.log(res.locals.redirectUrl)
-    console.log(req.session)
-    next();
+    if (req.session.redirectUrl) {
+        res.locals.redirectUrl = req.session.redirectUrl;
+        return res.redirect("/signup"); // Redirect here and end the middleware chain
+    }
+    next(); // Call next only if there is no redirect
 };
+
+// module.exports.saveRedirectUrl = (req,res,next)=>{
+//     console.log("saveRedirectUrl called")
+//     if(req.session.redirectUrl){
+//         res.locals.redirectUrl = req.session.redirectUrl;
+//     }
+//     console.log(res.locals.redirectUrl)
+//     console.log(req.session)
+//     next();
+// };
 
 
 

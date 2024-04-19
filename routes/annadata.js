@@ -11,5 +11,8 @@ router.route("/")
 router.route("/schemes")
 .get(wrapAsync(annadataController.schemes))
 
+router.route("/forums")
+.get(isLoggedIn,wrapAsync(annadataController.renderForums))
+
 module.exports = router;
 

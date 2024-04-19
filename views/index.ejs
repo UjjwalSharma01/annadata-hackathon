@@ -1,4 +1,6 @@
 <% layout("/layouts/boilerplate") %>
+<%=success %>
+<%=error %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +13,7 @@
     <link rel="stylesheet" href="output.css">
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
-<%=success %>
-<%=error %>
+
 <body class="bg-gray-200">
     <div class="flex flex-col min-h-screen">
         <header class="bg-gray-900 text-white py-4 px-6">
@@ -40,13 +41,13 @@
                 <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
                     <h2 class="text-lg font-bold mb-4">Schemes</h2>
                     <p class="text-gray-600">Explore the latest government schemes for farmers.</p>
-                    <a href="schemes.ejs" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Learn More</a>
+                    <a href="/annadata/schemes" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Learn More</a>
                 </div>
 
                 <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
                     <h2 class="text-lg font-bold mb-4">Community Forum</h2>
                     <p class="text-gray-600">Connect with other farmers and share best practices.</p>
-                    <a href="./forum.ejs" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Explore</a>
+                    <a href="/annadata/forums" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Explore</a>
                 </div>
 
                 <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
