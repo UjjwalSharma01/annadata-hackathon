@@ -13,7 +13,7 @@ router.route("/signup")
 //login page
 router.route("/login")
 .post(
-    saveRedirectUrl,
+    // saveRedirectUrl,
     passport.authenticate('local', {
          failureRedirect: '/signup'
          ,failureFlash:true 

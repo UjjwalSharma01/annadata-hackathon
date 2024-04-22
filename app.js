@@ -11,7 +11,8 @@ const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 const User = require("./models/user.js");
 const userRouter  = require("./routes/user.js");
-const annadataRouter = require("./routes/annadata.js")
+const forumRouter = require("./routes/forum.js");
+const annadataRouter = require("./routes/annadata.js");
 
 //connect to MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/annadata")
@@ -26,7 +27,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/annadata")
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "/views")));
+app.use(express.static(path.join(__dirname,"views")))
 app.engine('ejs', ejsMate);
 
 //session
@@ -59,6 +60,7 @@ app.use((req, res, next) => {
 
 // // Routes setup
 app.use("/annadata", annadataRouter);
+app.use("/annadata/:id",forumRouter);
 app.use("/", userRouter);
 
 // Error handling middleware

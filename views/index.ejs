@@ -10,22 +10,10 @@
     <title>Annadata</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
-    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="/output.css">
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
-<body class="bg-gray-200">
-    <div class="flex flex-col min-h-screen">
-        <header class="bg-gray-900 text-white py-4 px-6">
-            <!-- <nav class="flex justify-between items-center">
-                <a href="#" class="font-bold text-xl">Annadata</a>
-                <div class="flex space-x-4 items-center justify-center">
-                    <a href="/annadata/schemes" class="hover:text-gray-400">Schemes</a>
-                    <div id="google_translate_element" class="hover:text-gray-400"></div>
-                    <a href="/signup" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded">Login/Signup</a>
-                </div>
-            </nav> -->
-        </header>
 
 
 <div class="relative h-80">
@@ -47,7 +35,14 @@
                 <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
                     <h2 class="text-lg font-bold mb-4">Community Forum</h2>
                     <p class="text-gray-600">Connect with other farmers and share best practices.</p>
-                    <a href="/annadata/forums" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Explore</a>
+                    <% if (currentUser && currentUser._id) { %>
+                        <!-- If a user is logged in and has an _id, display a link to the forum page -->
+                        <a href="/annadata/<%= currentUser._id.toHexString() %>/forums" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Explore</a>
+                    <% } else { %>
+                        <!-- If no user is logged in or currentUser doesn't have an _id, display a generic message or link -->
+                        <a href="/annadata/userid/forums" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Explore</a>
+                    <% } %>
+                    
                 </div>
 
                 <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
