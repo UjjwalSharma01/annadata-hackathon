@@ -9,7 +9,7 @@ body{
 }
 .navbar{
     height: 5rem;
-    background-color:#24243e;
+    background-image: url("../leavesBG.jpg");
     color: azure;
 }
     
@@ -33,7 +33,7 @@ body{
 .f-info{
     text-align: center;
     height: 8rem;
-    background-color: #24243e;
+    background-image: url("../leavesBG.jpg");
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
