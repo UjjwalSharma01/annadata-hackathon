@@ -5,52 +5,35 @@ module.exports.renderSignupPage = (req, res) => {
     res.render("signup_login.ejs")
 };
 
-module.exports.signup = async (req, res) => {
+module.exports.signup = async (req, res, next) => {
     try {
-        const { username, email, password, location, land_area, income } = req.body;
-        const user = new User({ username, email, password, location, land_area, income });
-        await user.save();
-        req.login(user, (err) => {
+        // Destructure username, email, password, location, land_area, and income from req.body
+        let { username, email, password, location, land_area, income } = req.body;
+
+        // Create a new user object with the provided data
+        const newUser = new User({ username, email, location, land_area, income });
+
+        // Register the new user with the provided password
+        const registeredUser = await User.register(newUser, password);
+
+        console.log(registeredUser);
+
+        // Log in the registered user
+        req.login(registeredUser, (err) => {
             if (err) {
-                req.flash("error", err);
-                return res.redirect("/signup");
+                req.flash("failure", err);
+                return next(err);
+            } else {
+                req.flash("success", "Welcome to Annadata");
+                res.redirect("/annadata");
             }
-            req.flash("success", "Welcome to AnnaData!");
-            res.redirect("/annadata");
         });
     } catch (e) {
-        req.flash("error", e.message);
-        res.redirect("/signup");
+        // If an error occurs, redirect to the signup page with an error message
+        req.flash("error" ,e.message);
+        res.redirect("/signup")
     }
 };
-
-// module.exports.signup = async(req,res)=>{
-//     try{
-//         let { username ,  email , password} = req.body;
-//     const newUser = new User({email ,username});
-//     const registeredUser = await User.register(newUser,password);
-//     console.log(registeredUser);
-//     req.login(registeredUser,(err)=>{
-//         if(err){
-//             req.flash("faliure",err)
-//             return next(err);
-//         }else{
-//             req.flash("success","Welcome to annadata")
-//             res.redirect("/annadata")
-//         }
-//     })
-
-//     }
-//     catch(e){
-//         req.flash("error",e.message);
-//         res.redirect("/signup")
-//     }
-// };
-
-// module.exports.renderLoginPage =(req,res)=>{
-
-//     res.render("users/login.ejs")
-// };
 
 module.exports.login = async (req, res) => {
     req.flash("success", "You are Loggedin!");
