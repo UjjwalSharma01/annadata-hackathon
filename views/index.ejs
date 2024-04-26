@@ -1,59 +1,73 @@
 <% layout("/layouts/boilerplate2") %>
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Annadata</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Annadata</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
-    <link rel="stylesheet" href="/output.css">
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <style>
-        /* Popup container */
-        .popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            /* width: 400px; */
-            /* height: 200px; */
-            background-color: black;
-            color: white;
-            padding: 50px;
-            font-size: xxx-large;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-            /* Ensure it's above other content */
-        }
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+        <link rel="stylesheet" href="/output.css">
+        <script type="text/javascript"
+            src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <style>
+            /* Popup container */
+            .popup {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                /* width: 400px; */
+                /* height: 200px; */
+                background-color: black;
+                color: white;
+                padding: 50px;
+                font-size: xxx-large;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                z-index: 1000;
+                /* Ensure it's above other content */
+            }
 
-        /* Close button */
-        .cross {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background-color: transparent;
-            color: white;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-        }
-    </style>
-</head>
+            /* Close button */
+            .cross {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                background-color: transparent;
+                color: white;
+                border: none;
+                font-size: 20px;
+                cursor: pointer;
+            }
 
-<div class="relative h-80">
-    <img src="/image.jpg" alt="Background Image" class="absolute inset-0 w-full h-full object-cover">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    <h1 class="text-5xl text-white font-bold absolute inset-0 flex items-center justify-center">Annadata</h1>
-</div>
+            .aibot {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: green;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                text-align: center;
+                text-decoration: none;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
 
-<div class="popup" id="languagePopup">
-    <span>Select Language</span>
-    <button class="cross"><img src="./cross.svg" alt="close"></button>
-    <div id="google_translate_element" class="hover:text-gray-400"></div>
-</div>
+    <div class="relative h-80">
+        <img src="/image.jpg" alt="Background Image" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <h1 class="text-5xl text-white font-bold absolute inset-0 flex items-center justify-center">Annadata</h1>
+    </div>
+
+    <div class="popup" id="languagePopup">
+        <span>Select Language</span>
+        <button class="cross"><img src="./cross.svg" alt="close"></button>
+        <div id="google_translate_element" class="hover:text-gray-400"></div>
+    </div>
 
 
 
@@ -77,9 +91,10 @@
             </div>
 
             <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
-                <h2 class="text-lg font-bold mb-4">Weather Forecast</h2>
-                <p class="text-gray-600">Get the latest weather updates for your area.</p>
-                <a href="#" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Check Forecast</a>
+                <h2 class="text-lg font-bold mb-4">AI SERVICES</h2>
+                <button class="aibot">
+                    <a href="https://mediafiles.botpress.cloud/d1bdf983-7ede-4fa4-8e31-ce4106853308/webchat/bot.html ">AI BOT</a>
+                </button>
             </div>
         </div>
     </main>
@@ -105,4 +120,4 @@
         }
     </script>
 
-</html>
+    </html>
