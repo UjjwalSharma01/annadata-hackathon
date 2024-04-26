@@ -1,9 +1,9 @@
 const Forum = require("../models/forum")
 module.exports.index = async(req,res)=>{
-    res.render("index.ejs");
+    res.render("../views/index.ejs");
 };
 module.exports.schemes=async(req,res)=>{
-    res.render("schemes.ejs")
+    res.render("../views/schemes.ejs")
 }
 module.exports.renderForums = async (req, res) =>{
     const allPost= await Forum.find({})

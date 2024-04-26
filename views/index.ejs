@@ -1,5 +1,4 @@
-<% layout("/layouts/boilerplate") %>
-
+<% layout("/layouts/boilerplate2") %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,48 +10,101 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
     <link rel="stylesheet" href="/output.css">
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <style>
+        /* Popup container */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* width: 400px; */
+            /* height: 200px; */
+            background-color: black;
+            color: white;
+            padding: 50px;
+            font-size: xxx-large;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            /* Ensure it's above other content */
+        }
+
+        /* Close button */
+        .cross {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: transparent;
+            color: white;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 
 
-        <div class="relative h-80">
-            <img src="/image.jpg" alt="Background Image" class="absolute inset-0 w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black opacity-50"></div>
-            <h1 class="text-5xl text-white font-bold absolute inset-0 flex items-center justify-center">Annadata</h1>
-        </div>
+<div class="relative h-80">
+    <img src="/image.jpg" alt="Background Image" class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <h1 class="text-5xl text-white font-bold absolute inset-0 flex items-center justify-center">Annadata</h1>
+</div>
+
+<div class="popup" id="languagePopup">
+    <span>Select Language</span>
+    <button class="cross"><img src="./cross.svg" alt="close"></button>
+    <div id="google_translate_element" class="hover:text-gray-400"></div>
+</div>
 
 
 
-        <main class="flex-grow bg-gray-100 p-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
-                    <h2 class="text-lg font-bold mb-4">Schemes</h2>
-                    <p class="text-gray-600">Explore the latest government schemes for farmers.</p>
-                    <a href="/annadata/schemes" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Learn
-                        More</a>
-                </div>
-
-                <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
-                    <h2 class="text-lg font-bold mb-4">Community Forum</h2>
-                    <p class="text-gray-600">Connect with other farmers and share best practices.</p>
-                    
-                        <!-- If a user is logged in and has an _id, display a link to the forum page -->
-                        <a href="/annadata/forums" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Explore</a>
-                    
-                    
-                </div>
-
-                <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
-                    <h2 class="text-lg font-bold mb-4">Weather Forecast</h2>
-                    <p class="text-gray-600">Get the latest weather updates for your area.</p>
-                    <a href="#" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Check Forecast</a>
-                </div>
+    <main class="flex-grow bg-gray-100 p-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
+                <h2 class="text-lg font-bold mb-4">Schemes</h2>
+                <p class="text-gray-600">Explore the latest government schemes for farmers.</p>
+                <a href="/annadata/schemes" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Learn
+                    More</a>
             </div>
-        </main>
+
+            <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
+                <h2 class="text-lg font-bold mb-4">Community Forum</h2>
+                <p class="text-gray-600">Connect with other farmers and share best practices.</p>
+
+                <!-- If a user is logged in and has an _id, display a link to the forum page -->
+                <a href="/annadata/forums" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Explore</a>
+
+
+            </div>
+
+            <div class="bg-white shadow-lg rounded-lg p-6 transform hover:scale-105 transition-all duration-300">
+                <h2 class="text-lg font-bold mb-4">Weather Forecast</h2>
+                <p class="text-gray-600">Get the latest weather updates for your area.</p>
+                <a href="#" class="text-blue-500 hover:text-blue-700 mt-4 inline-block">Check Forecast</a>
+            </div>
+        </div>
+    </main>
 
 
     </div>
-    <script src="/script.js"></script>
+    <script src="./script.js"></script>
+    <script>
+        // Function to hide the language popup
+        function hideLanguagePopup() {
+            var popup = document.getElementById('languagePopup');
+            if (popup) {
+                popup.style.display = 'none';
+            }
+        }
 
+        // Add event listener to close the popup when "X" button is clicked
+        var closeButton = document.querySelector('.cross');
+        if (closeButton) {
+            closeButton.addEventListener('click', function () {
+                hideLanguagePopup();
+            });
+        }
+    </script>
 
 </html>
