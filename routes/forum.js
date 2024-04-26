@@ -7,8 +7,8 @@ const forumController = require("../controllers/forum.js");
 const User = require("../models/user");
 const Forum = require("../models/forum")
 
-router.route("/forums")
-.get(isLoggedIn,wrapAsync(forumController.renderForums))
-.post(isLoggedIn,wrapAsync(forumController.createForum))
+router.route("/ask")
+.get(isLoggedIn,wrapAsync(forumController.renderAsk))
+.post(isLoggedIn,wrapAsync(forumController.postQues))
 
 module.exports = router;
