@@ -14,7 +14,8 @@ router.route("/schemes")
 router.route("/forums")
 .get(wrapAsync(annadataController.renderForums))
 
-
+router.route("/profile")
+.get(wrapAsync(annadataController.profile))
 
 
 module.exports = router;
