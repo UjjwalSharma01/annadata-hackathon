@@ -15,12 +15,23 @@ const forumRouter = require("./routes/forum.js");
 const annadataRouter = require("./routes/annadata.js");
 
 //connect to MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/annadata")
+// mongoose.connect("mongodb://127.0.0.1:27017/annadata")
+//     .then(() => {
+//         console.log("Connected to MongoDB");
+//     })
+//     .catch((err) => {
+//         console.error("Error connecting to MongoDB:", err);
+//     });
+
+
+// connecting to MongoDB Cloud
+require('dotenv').config();
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
-        console.log("Connected to MongoDB");
+        console.log("Connected to MongoDB Atlas");
     })
     .catch((err) => {
-        console.error("Error connecting to MongoDB:", err);
+        console.error("Error connecting to MongoDB Atlas:", err);
     });
 
 //MiddleWare Setup
