@@ -22,28 +22,30 @@
         </div>
         <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
             <% for(post of allPost){ %>
-                <div class="col">
-                    <div class="card mb-3">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <div class="flex-grow-1"> <!-- Ensure proper separation and alignment -->
-                                <div>
-                                    <span class="font-weight-bold">Username: </span><%= post.author.username %>
-                                </div>
-                                <div>
-                                    <span class="font-weight-bold">Category: </span><%= post.Category %>
+                <% if (post.author) {%>
+                    <div class="col">
+                        <div class="card mb-3">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <div class="flex-grow-1"> <!-- Ensure proper separation and alignment -->
+                                    <div>
+                                        <span class="font-weight-bold">Username: </span><%= post.author.username %>
+                                    </div>
+                                    <div>
+                                        <span class="font-weight-bold">Category: </span><%= post.Category %>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-body p-3">
-                            <h5 class="card-subtitle mb-2 text-muted">Question: <%= post.Question %></h5>
-                            <p class="card-text"><%= post.Description %>...</p> <!-- Truncate description -->
-                            <a href="" class="btn btn-sm btn-primary">Read More</a> <!-- Option to expand description -->
-                        </div>
-                        <div class="card-footer text-muted">
-                             Posted on <%= post.createdAt.toLocaleDateString() %> at <%= post.createdAt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) %>
+                            <div class="card-body p-3">
+                                <h5 class="card-subtitle mb-2 text-muted">Question: <%= post.Question %></h5>
+                                <p class="card-text"><%= post.Description %>...</p> <!-- Truncate description -->
+                                <a href="" class="btn btn-sm btn-primary">Read More</a> <!-- Option to expand description -->
+                            </div>
+                            <div class="card-footer text-muted">
+                                 Posted on <%= post.createdAt.toLocaleDateString() %> at <%= post.createdAt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) %>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <% }; %>
             <% }; %>
         </div>
     </div>

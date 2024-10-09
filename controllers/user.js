@@ -8,10 +8,10 @@ module.exports.renderSignupPage = (req, res) => {
 module.exports.signup = async (req, res, next) => {
     try {
         // Destructure username, email, password, location, land_area, and income from req.body
-        let { username, email, password, location, land_area, income } = req.body;
+        let { username,  password, location, land_area, income } = req.body;
 
         // Create a new user object with the provided data
-        const newUser = new User({ username, email, location, land_area, income });
+        const newUser = new User({ username,  location, land_area, income });
 
         // Register the new user with the provided password
         const registeredUser = await User.register(newUser, password);
@@ -47,7 +47,7 @@ module.exports.logout = (req, res, next) => {
         if (err) {
             return next(err);
         }
-        req.flash("success", "You are logedout!");
+        req.flash("success", "You are loggedout!");
         res.redirect("/annadata")
     })
 };
