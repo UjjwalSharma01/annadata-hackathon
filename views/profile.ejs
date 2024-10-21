@@ -17,23 +17,23 @@
                 <button class="close-btn">&times;</button>
             </div>
             <form  method="post" action="/annadata/profile?_method=put"  class="form-body" >
-                    <div class="user_name">
-                        <label for="username">Username:</label>
+                    <div class="user_name form-atr">
+                        <label for="username">Name:</label>
                         <input type="text" name="username" placeholder="<%= user.username %>" id="username">
                     </div>
-                    <div class="email">
+                    <div class="email form-atr">
                         <label for="email">Email:</label>
                         <input type="email" name="email" placeholder="<%= user.email %>" id="email">
                     </div>
-                    <div class="mobile_no">
+                    <div class="mobile_no form-atr">
                         <label for="mobile_no">Mobile No:</label>
                         <input type="tel" name="mobile_no" placeholder="<%= user.mobile_no %>" id="mobile_no">
                     </div>
-                    <div class="location">
+                    <div class="location form-atr">
                         <label for="location">Location:</label>
                         <input type="text" name="location" placeholder="<%= user.location %>" id="location">
                     </div>
-                    <div class="income">
+                    <div class="income form-atr">
                         <label for="income">Income:</label>
                         <input type="number" name="income" placeholder="<%= user.income %>" id="income">
                     </div>
@@ -63,7 +63,7 @@
             <div class="value"><%= user.land_area +"sq.feet"||"Not Provided" %></div>
             <div class="key">Income:</div>
             <div class="value"><%= user.income||"Not Provided" %></div>
-            <button class="btn btn-sm btn-primary edit-btn">Edit</button>
+            <button class=" edit-btn">Edit</button>
         </div>
         <!--right child-->
         <div class="right child">
@@ -93,13 +93,13 @@
                           </div>
                     </div>
                 <%}  %>
-            </div>
+            <!-- </div>
             <div class="footer">
                 <a class="overview" href="">Profile Overview</a>
                 <a href="">Alerts or Updates</a>
                 <a href="">Analytics dashboad</a>
                 <a href="">Help & Support</a>
-            </div>
+            </div> -->
         </div>
        </div>
     </div>

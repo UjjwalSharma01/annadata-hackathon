@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     overlay.addEventListener('click', function() {
-        editForm.style.display = 'none';
-        overlay.style.display = 'none';
+        // editForm.style.display = 'none';
+        // overlay.style.display = 'none';
         editPicture.style.display='none';
     });
     icon.addEventListener('click',function(){
