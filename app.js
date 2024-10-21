@@ -13,6 +13,7 @@ const User = require("./models/user.js");
 const userRouter  = require("./routes/user.js");
 const forumRouter = require("./routes/forum.js");
 const annadataRouter = require("./routes/annadata.js");
+const {cropImageData,userId,addCropImageForUser} = require("./init.js")
 
 //connect to MongoDB
 mongoose.connect("mongodb://127.0.0.1:27017/annadata")
@@ -23,13 +24,24 @@ mongoose.connect("mongodb://127.0.0.1:27017/annadata")
         console.error("Error connecting to MongoDB:", err);
     });
 
+    //temp
+    
+    // cropImageData.forEach(data => {
+    //     setTimeout(() => {
+    //         addCropImageForUser(userId,data);
+    //     }, 5000);
+        
+    // });
+    //
+
 //MiddleWare Setup
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname,"views")))
+app.use(express.static(path.join(__dirname,"public")))
 app.engine('ejs', ejsMate);
 
+app.use(methodOverride('_method'));
 //session
 app.use(session({
     secret: "mysupersecretcode",
@@ -50,6 +62,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+app.use(express.json());
 
 app.use((req, res, next) => {
     res.locals.success = req.flash("success");

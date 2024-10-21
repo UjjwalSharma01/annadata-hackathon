@@ -7,10 +7,10 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    // email: {
-    //     type: String,
-    //     required: true,
-    // },
+    email: {
+        type: String,
+        // required: true,
+    },
     location: {
         type: String,
     },
@@ -20,6 +20,16 @@ const userSchema = new Schema({
     income: {
         type: Number,
     },
+    mobile_no:{
+        type: Number,
+    },
+     cropImages: [{
+        type: Schema.Types.ObjectId,
+        ref: 'CropImage',
+    }],
+    profile_picture: {
+        type:String,
+    }
 });
 
 userSchema.plugin(passportLocalMongoose);
