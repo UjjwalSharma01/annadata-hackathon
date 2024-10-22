@@ -42,11 +42,12 @@
         </div>
        <div class="outerMost">
         <div class="upper-left child" id="upper-left">
-            <div class="profile-picture" style="background-image: url(<%=user.profile_Picture%>);"></div>
+            <div class="profile-picture" style="background-image: url(<%=user.profile_picture%>);"></div>
             <i class="bi bi-pencil-square" title="edit profile picture" id="icon"></i>
             <form class="editPicture" action="/annadata/profile?_method=patch" method="post">
                 <input type="text" name="profile_picture" placeholder="Enter image URL here">
                 <button class="btn btn-primary btn-sm">Save</button>
+                <i class="picture-close">&times;</i>
             </form>
             <div class="username">
                 <%= user.username %>

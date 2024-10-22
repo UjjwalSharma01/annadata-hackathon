@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const overlay = document.querySelector('.overlay');
     const editPicture = document.querySelector('.editPicture');
     const icon = document.querySelector('.bi');
+    const editPictureClose = document.querySelector('.picture-close');
 
 
     editBtn.addEventListener('click', function() {
@@ -20,8 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.addEventListener('click', function() {
         // editForm.style.display = 'none';
         // overlay.style.display = 'none';
-        editPicture.style.display='none';
+        // editPicture.style.display='none';
     });
+    editPictureClose.addEventListener('click',function () {
+        overlay.style.display='none';
+        editPicture.style.display='none';
+    })
     icon.addEventListener('click',function(){
         editPicture.style.display='block';
         overlay.style.display='block';

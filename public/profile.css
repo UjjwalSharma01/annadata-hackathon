@@ -103,6 +103,11 @@ body{
 .editPicture button{
     border-radius: 1rem;
 }
+.editPicture i{
+    font-weight: bold;
+    cursor: pointer;
+    height: 1rem;
+}
 .username{
     grid-column: 2/3;
     grid-row: 2/3;
